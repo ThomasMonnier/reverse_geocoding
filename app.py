@@ -25,6 +25,6 @@ if __name__ == "__main__":
         if get:
             try:
                 g = geocoder.mapbox(latlng, method='reverse', key=st.secrets["MAPBOX_ACCESS_TOKEN"])
-                st.success(g.json)
+                st.json(g.json)
             except Exception as e:
                 st.error(e)
