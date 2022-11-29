@@ -15,7 +15,6 @@ if __name__ == "__main__":
     password = st.text_input('Password: ', value="")
     if password == st.secrets["PASSWORD"]:
         col_11, col_12, col_2 = st.columns(3)
-        latlng = [36.54085544, -4.619933495]
         with col_11:
             lat = st.text_input('Latitude: ', value="36.54085544")
 
@@ -23,6 +22,10 @@ if __name__ == "__main__":
             lng = st.text_input('Longitude: ', value="-4.619933495")
 
         with col_2:
+            try:
+                latlng = [float(lat), float(lng)]
+            except:
+                st.error('Check the lat and lng values')
             get = st.button('Get the address')
             if get:
                 try:
